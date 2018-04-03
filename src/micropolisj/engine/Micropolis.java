@@ -917,6 +917,10 @@ public class Micropolis
 			if (pollutionAverage > 60) {
 				makeMonster();
 			}
+		case 9:
+			if (totalPop > 20000 && (PRNG.nextInt(2048) == 0)) {
+				makeUFO();
+			}
 			break;
 		}
 	}
@@ -2367,6 +2371,21 @@ public class Micropolis
 		sprites.add(new TornadoSprite(this, xpos, ypos));
 		sendMessageAt(MicropolisMessage.TORNADO_REPORT, xpos, ypos);
 	}
+	
+	public void makeUFO()
+	{
+		UFOSprite UFO = (UFOSprite) getSprite(SpriteKind.UFO);
+		if (UFO != null) {
+			return;
+		}
+
+		//FIXME- this is not exactly like the original code
+		int xpos = PRNG.nextInt(getWidth() - 19) + 10;
+		int ypos = PRNG.nextInt(getHeight() - 19) + 10;
+		sprites.add(new UFOSprite(this, xpos, ypos));
+		sendMessageAt(MicropolisMessage.UFO_REPORT, xpos, ypos);
+	}
+
 
 	public void makeFlood()
 	{

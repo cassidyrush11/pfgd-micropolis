@@ -32,6 +32,7 @@ public class TornadoSprite extends Sprite
 		this.frame = 1;
 		this.count = 200;
 	}
+	
 
 	@Override
 	public void moveImpl()

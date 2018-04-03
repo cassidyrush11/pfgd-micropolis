@@ -36,6 +36,7 @@ public enum MicropolisMessage
 	FIRE_REPORT,           //  20
 	MONSTER_REPORT,
 	TORNADO_REPORT,
+	UFO_REPORT,
 	EARTHQUAKE_REPORT,     //  23            makeEarthquake
 	PLANECRASH_REPORT,
 	SHIPWRECK_REPORT,
@@ -80,6 +81,7 @@ public enum MicropolisMessage
 	FLOOD_REPORT.useNotificationPane = true;
 	FIRE_REPORT.useNotificationPane = true;
 	TORNADO_REPORT.useNotificationPane = true;
+	UFO_REPORT.useNotificationPane = true;
 	MELTDOWN_REPORT.useNotificationPane = true;
 	EARTHQUAKE_REPORT.useNotificationPane = true;
 	TRAIN_CRASH_REPORT.useNotificationPane = true;

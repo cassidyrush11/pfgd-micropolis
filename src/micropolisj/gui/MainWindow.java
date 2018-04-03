@@ -644,6 +644,17 @@ public class MainWindow extends JFrame
 			}
 			}));
 		disastersMenu.add(menuItem);
+		
+		menuItem = new JMenuItem(strings.getString("menu.disasters.UFO"));
+		setupKeys(menuItem, "menu.disasters.UFO");
+		menuItem.addActionListener(wrapActionListener(
+			new ActionListener() {
+			public void actionPerformed(ActionEvent ev)
+			{
+				onInvokeDisasterClicked(Disaster.UFO);
+			}
+			}));
+		disastersMenu.add(menuItem);
 
 		menuItem = new JMenuItem(strings.getString("menu.disasters.EARTHQUAKE"));
 		setupKeys(menuItem, "menu.disasters.EARTHQUAKE");
@@ -1538,6 +1549,9 @@ public class MainWindow extends JFrame
 			break;
 		case TORNADO:
 			getEngine().makeTornado();
+			break;
+		case UFO:
+			getEngine().makeUFO();
 			break;
 		case EARTHQUAKE:
 			getEngine().makeEarthquake();

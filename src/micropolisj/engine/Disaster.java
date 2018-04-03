@@ -18,5 +18,6 @@ public enum Disaster
 	FLOOD,
 	MELTDOWN,
 	TORNADO,
+	UFO,
 	EARTHQUAKE;
 }
