@@ -230,6 +230,14 @@ public abstract class Sprite
 				}
 				else {
 					city.setTile(xpos, ypos, RUBBLE);
+					city.setTile(xpos + 1, ypos, RUBBLE);
+					city.setTile(xpos, ypos + 1, RUBBLE);
+					city.setTile(xpos - 1, ypos, RUBBLE);
+					city.setTile(xpos, ypos - 1, RUBBLE);
+					city.setTile(xpos + 1, ypos -1, RUBBLE);
+					city.setTile(xpos - 1, ypos + 1, RUBBLE);
+					city.setTile(xpos - 1, ypos - 1, RUBBLE);
+					city.setTile(xpos + 1, ypos + 1, RUBBLE);
 				}
 			}
 		
