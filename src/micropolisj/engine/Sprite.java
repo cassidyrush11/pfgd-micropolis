@@ -202,6 +202,38 @@ public abstract class Sprite
 			}
 		}
 	}
+		
+		
+		final void makeRubble(int xpos, int ypos)
+		{
+			if (!city.testBounds(xpos, ypos))
+				return;
+
+			int t = city.getTile(xpos, ypos);
+
+			if (t >= TREEBASE) {
+				if (isBridge(t)) {
+					city.setTile(xpos, ypos, RIVER);
+					return;
+				}
+				if (!isCombustible(t)) {
+					return; //cannot destroy it
+				}
+				if (isZoneCenter(t)) {
+					city.killZone(xpos, ypos, t);
+					if (t > RZB) {
+						city.setTile(xpos, ypos, RUBBLE);
+					}
+				}
+				if (checkWet(t)) {
+					city.setTile(xpos, ypos, RIVER);
+				}
+				else {
+					city.setTile(xpos, ypos, RUBBLE);
+				}
+			}
+		
+	}
 
 	/**
 	 * Helper function for rotating a sprite.

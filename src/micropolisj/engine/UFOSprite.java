@@ -1,5 +1,7 @@
 package micropolisj.engine;
 
+//import static micropolisj.engine.TileConstants.*;
+
 /**
  * Implements a UFO (one of the Micropolis disasters).
  */
@@ -47,9 +49,6 @@ public class UFOSprite extends Sprite
 
 		this.frame = z;
 
-		//int zz = city.PRNG.nextInt(CDx.length);
-		//x += CDx[zz];
-		//y += CDy[zz];
 
 		if (!city.testBounds(x/16, y/16)) {
 			// out of bounds
@@ -57,17 +56,14 @@ public class UFOSprite extends Sprite
 			return;
 		}
 		
-		if ((city.cityTime % 4) == 0) {
+		if (city.cityTime % 4 == 0) {
 			this.frame = 0;
 			return;
 		}
 
-		//if (this.count == 0 && city.PRNG.nextInt(501) == 0) {
-			// early termination
-			//this.frame = 0;
-			//return;
-		//}
-
-		destroyTile(x/16, y/16);
+		makeRubble(x/16, y/16);
+		
+		//city.setTile(x, y, (char)(RUBBLE)); 
+		//return;
 	}
 }

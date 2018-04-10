@@ -2379,13 +2379,25 @@ public class Micropolis
 			return;
 		}
 
-		//FIXME- this is not exactly like the original code
-		int xpos = PRNG.nextInt(getWidth() - 19) + 10;
-		int ypos = PRNG.nextInt(getHeight() - 19) + 10;
+		for (int i = 0; i < 300; i++) {
+			int xpos = PRNG.nextInt(getWidth() - 19) + 10;
+			int ypos = PRNG.nextInt(getHeight() - 9) + 5;
+			int t = getTile(xpos, ypos);
+			if (isZoneCenter(t)) {
+				makeUFOAt(xpos, ypos);
+				return;
+		//sprites.add(new UFOSprite(this, xpos, ypos));
+		//sendMessageAt(MicropolisMessage.UFO_REPORT, xpos, ypos);
+			}
+		}
+	}
+	
+	void makeUFOAt(int xpos, int ypos)
+	{
+		assert !hasSprite(SpriteKind.UFO);
 		sprites.add(new UFOSprite(this, xpos, ypos));
 		sendMessageAt(MicropolisMessage.UFO_REPORT, xpos, ypos);
 	}
-
 
 	public void makeFlood()
 	{
