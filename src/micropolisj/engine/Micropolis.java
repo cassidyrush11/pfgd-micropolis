@@ -917,11 +917,35 @@ public class Micropolis
 			if (pollutionAverage > 60) {
 				makeMonster();
 			}
-		case 9:
-			if (totalPop > 20000 && (PRNG.nextInt(2048) == 0)) {
+		//case 9:
+			//if (totalPop > 20000 && (PRNG.nextInt(2048) == 0)) {
+				//makeUFO();
+			//}
+			//break;
+		}
+	}
+	
+	void doUFODisaster()
+	{
+		if (floodCnt > 0) {
+			floodCnt--;
+		}
+
+		final int [] DisChance = { 2048, 2048, 2048 };
+		if (noDisasters)
+			return;
+
+		if (PRNG.nextInt(DisChance[gameLevel]+1) != 0)
+			return;
+
+		switch (PRNG.nextInt(9))
+		{
+		case 0:
+		case 1:
+			if (totalPop > 20000) {
 				makeUFO();
 			}
-			break;
+			//break;
 		}
 	}
 
